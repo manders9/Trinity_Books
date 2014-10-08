@@ -39,12 +39,17 @@ group :development, :test do
 end
 
 gem 'devise'
-
 gem 'omniauth'
-
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
-gem 'omniauth-linkedin'
+group :assets do
+  gem 'therubyracer'
+  gem 'less-rails'
+  gem 'twitter-bootstrap-rails'
+  gem 'font-awesome-rails'
+end
 
 ruby "2.1.2"
 
