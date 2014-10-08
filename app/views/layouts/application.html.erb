@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TrinityBooks</title>
+  <title><%= content_for?(:title) ? yield(:title) : "Trinity Listings" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right no-bullet">
+        <% if !current_user %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% else %>
+          <% if current_user %>
+            <li><%= link_to "User Profile", user_path(current_user) %></li>
+          <% end %>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>
+
+<h1>Trinity Book Listings</h1>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 
 <%= yield %>
 
