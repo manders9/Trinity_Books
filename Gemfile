@@ -40,6 +40,12 @@ end
 
 gem 'devise'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'omniauth-linkedin'
+
 ruby "2.1.2"
 
 # Use ActiveModel has_secure_password
