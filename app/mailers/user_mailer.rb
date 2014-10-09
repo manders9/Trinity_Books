@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url  = new_user_session
+    @url  = root_path
     mail(to: @user.email, subject: 'Welcome to Trinity Listings!')
   end
 end
