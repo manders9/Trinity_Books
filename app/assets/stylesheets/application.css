@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
  */
 .identities {
   margin-bottom: 30px;
