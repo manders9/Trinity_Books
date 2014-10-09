@@ -9,15 +9,20 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username
 
+  after_create :send_email
+  def send_email
+    UserMailer.welcome_email(self).deliver
+  end
+
   def apply_omniauth(omniauth)
-    identities.build(provider: :omniauth['provider'], uid: :omniauth['uid'])
+    identities.build(provider: omniauth['provider'], uid: omniauth['uid'])
   end
 
   def password_required?
     (identities.empty? || !password.blank?) && super
   end
 
-  def update_with_password(params, *options)
-    update_attributes(params, *options)
+  def update_with_password(params)
+    update_attributes(user_params)
   end
 end

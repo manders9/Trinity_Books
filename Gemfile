@@ -36,8 +36,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'email_spec'
+  gem 'mailcatcher'
 end
 
+gem 'foundation-rails', '5.4.3.0'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
