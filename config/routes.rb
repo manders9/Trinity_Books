@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
 
   resources :users
-  resources :authentications
+  resources :identities
 
   root to: 'welcome#index'
 
